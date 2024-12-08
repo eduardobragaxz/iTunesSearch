@@ -1,67 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace iTunesSearch.Library.Models;
 
-namespace iTunesSearch.Library.Models
+public class Album
 {
-    [DataContract]
-    public class Album
-    {
-        [DataMember(Name = "artistId")]
-        public long ArtistId { get; set; }
+    [JsonPropertyName("artistId")]
+    public long ArtistId { get; set; }
 
-        [DataMember(Name = "collectionId")]
-        public long CollectionId { get; set; }
+    [JsonPropertyName("collectionId")]
+    public long CollectionId { get; set; }
 
-        [DataMember(Name = "amgArtistId")]
-        public long AMGArtistId { get; set; }
+    [JsonPropertyName("amgArtistId")]
+    public long AMGArtistId { get; set; }
 
-        [DataMember(Name = "artistName")]
-        public string ArtistName { get; set; }
+    [JsonPropertyName("artistName")]
+    public string? ArtistName { get; set; }
 
-        [DataMember(Name = "collectionName")]
-        public string CollectionName { get; set; }
+    [JsonPropertyName("collectionName")]
+    public string? CollectionName { get; set; }
 
-        [DataMember(Name = "collectionCensoredName")]
-        public string CollectionCensoredName { get; set; }
+    [JsonPropertyName("collectionCensoredName")]
+    public string? CollectionCensoredName { get; set; }
 
-        [DataMember(Name = "artistViewUrl")]
-        public string ArtistViewUrl { get; set; }
+    [JsonPropertyName("artistViewUrl")]
+    public string? ArtistViewUrl { get; set; }
 
-        [DataMember(Name = "collectionViewUrl")]
-        public string CollectionViewUrl { get; set; }
+    [JsonPropertyName("collectionViewUrl")]
+    public string? CollectionViewUrl { get; set; }
 
-        [DataMember(Name = "artworkUrl60")]
-        public string ArtworkUrl60 { get; set; }
+    [JsonPropertyName("artworkUrl60")]
+    public string? ArtworkUrl60 { get; set; }
 
-        [DataMember(Name = "artworkUrl100")]
-        public string ArtworkUrl100 { get; set; }
+    [JsonPropertyName("artworkUrl100")]
+    public string? ArtworkUrl100 { get; set; }
 
-        [DataMember(Name = "collectionPrice")]
-        public double CollectionPrice { get; set; }
+    [JsonPropertyName("collectionPrice")]
+    public double CollectionPrice { get; set; }
 
-        [DataMember(Name = "releaseDate")]
-        public string ReleaseDate { get; set; }
+    [JsonPropertyName("releaseDate")]
+    public string? ReleaseDate { get; set; }
 
-        [DataMember(Name = "collectionExplicitness")]
-        public string CollectionExplicitness { get; set; }
+    [JsonPropertyName("collectionExplicitness")]
+    public string? CollectionExplicitness { get; set; }
 
-        [DataMember(Name = "trackCount")]
-        public int TrackCount { get; set; }
+    [JsonPropertyName("trackCount")]
+    public int TrackCount { get; set; }
 
-        [DataMember(Name = "country")]
-        public string Country { get; set; }
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-        [DataMember(Name = "currency")]
-        public string Currency { get; set; }
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
 
-        [DataMember(Name = "primaryGenreName")]
-        public string PrimaryGenreName { get; set; }
+    [JsonPropertyName("primaryGenreName")]
+    public string? PrimaryGenreName { get; set; }
 
-        [DataMember(Name = "copyright")]
-        public string Copyright { get; set; }
-    }
+    [JsonPropertyName("copyright")]
+    public string? Copyright { get; set; }
 }

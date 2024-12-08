@@ -11,14 +11,11 @@ namespace iTunesSearch.Library
     {
         public static HttpValueCollection ParseQueryString(string query)
         {
-            if (query == null)
-            {
-                throw new ArgumentNullException("query");
-            }
+            ArgumentNullException.ThrowIfNull(query);
 
             if ((query.Length > 0) && (query[0] == '?'))
             {
-                query = query.Substring(1);
+                query = query[1..];
             }
 
             return new HttpValueCollection(query, true);
@@ -37,8 +34,8 @@ namespace iTunesSearch.Library
             this.Value = value;
         }
 
-        public string Key { get; set; }
-        public string Value { get; set; }
+        public string? Key { get; set; }
+        public string? Value { get; set; }
     }
 
     public class HttpValueCollection : Collection<HttpValue>
@@ -86,7 +83,7 @@ namespace iTunesSearch.Library
             return this.Any(x => string.Equals(x.Key, key, StringComparison.OrdinalIgnoreCase));
         }
 
-        public string[] GetValues(string key)
+        public string?[] GetValues(string key)
         {
             return this.Where(x => string.Equals(x.Key, key, StringComparison.OrdinalIgnoreCase)).Select(x => x.Value).ToArray();
         }
@@ -120,7 +117,7 @@ namespace iTunesSearch.Library
                 return string.Empty;
             }
 
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             foreach (HttpValue item in this)
             {
@@ -166,7 +163,7 @@ namespace iTunesSearch.Library
 
         private void FillFromString(string query, bool urlencoded)
         {
-            int num = (query != null) ? query.Length : 0;
+            int num = (query is not null) ? query.Length : 0;
             for (int i = 0; i < num; i++)
             {
                 int startIndex = i;
@@ -187,16 +184,16 @@ namespace iTunesSearch.Library
                     }
                     i++;
                 }
-                string str = null;
-                string str2 = null;
+                string? str = null;
+                string str2;
                 if (num4 >= 0)
                 {
-                    str = query.Substring(startIndex, num4 - startIndex);
+                    str = query[startIndex..num4];
                     str2 = query.Substring(num4 + 1, (i - num4) - 1);
                 }
                 else
                 {
-                    str2 = query.Substring(startIndex, i - startIndex);
+                    str2 = query[startIndex..i];
                 }
 
                 if (urlencoded)

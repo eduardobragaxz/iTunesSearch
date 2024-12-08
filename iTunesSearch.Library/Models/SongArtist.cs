@@ -1,34 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace iTunesSearch.Library.Models;
 
-namespace iTunesSearch.Library.Models
+public class SongArtist
 {
-    [DataContract]
-    public class SongArtist
-    {
-        [DataMember(Name = "artistName")]
-        public string ArtistName { get; set; }
+    [JsonPropertyName("artistName")]
+    public string? ArtistName { get; set; }
 
-        [DataMember(Name = "artistId")]
-        public long ArtistId { get; set; }
+    [JsonPropertyName("artistId")]
+    public long ArtistId { get; set; }
 
-        [DataMember(Name = "artistType")]
-        public string ArtistType { get; set; }
+    [JsonPropertyName("artistType")]
+    public string? ArtistType { get; set; }
 
-        [DataMember(Name = "artistLinkUrl")]
-        public string ArtistLinkUrl { get; set; }
+    [JsonPropertyName("artistLinkUrl")]
+    public string? ArtistLinkUrl { get; set; }
 
-        [DataMember(Name = "amgArtistId")]
-        public long AMGArtistId { get; set; }
+    [JsonPropertyName("amgArtistId")]
+    public long AMGArtistId { get; set; }
 
-        [DataMember(Name = "primaryGenreName")]
-        public string PrimaryGenreName { get; set; }
+    [JsonPropertyName("primaryGenreName")]
+    public string? PrimaryGenreName { get; set; }
 
-        [DataMember(Name = "primaryGenreId")]
-        public long PrimaryGenreId { get; set; }
-    }
+    [JsonPropertyName("primaryGenreId")]
+    public long PrimaryGenreId { get; set; }
 }

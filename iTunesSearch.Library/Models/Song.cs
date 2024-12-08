@@ -1,100 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace iTunesSearch.Library.Models;
 
-namespace iTunesSearch.Library.Models
+public class Song
 {
-    [DataContract]
-    public class Song
-    {
-        [DataMember(Name = "artistName")]
-        public string ArtistName { get; set; }
+    [JsonPropertyName("artistName")]
+    public string? ArtistName { get; set; }
 
-        [DataMember(Name = "artistId")]
-        public long ArtistId { get; set; }
+    [JsonPropertyName("artistId")]
+    public long ArtistId { get; set; }
 
-        [DataMember(Name = "trackId")]
-        public long TrackId { get; set; }
+    [JsonPropertyName("trackId")]
+    public long TrackId { get; set; }
 
-        [DataMember(Name = "trackName")]
-        public string TrackName { get; set; }
+    [JsonPropertyName("trackName")]
+    public string? TrackName { get; set; }
 
-        [DataMember(Name = "trackCensoredName")]
-        public string TrackCensoredName { get; set; }
+    [JsonPropertyName("trackCensoredName")]
+    public string? TrackCensoredName { get; set; }
 
-        [DataMember(Name = "collectionId")]
-        public long CollectionId { get; set; }
+    [JsonPropertyName("collectionId")]
+    public long CollectionId { get; set; }
 
-        [DataMember(Name = "collectionName")]
-        public string CollectionName { get; set; }
+    [JsonPropertyName("collectionName")]
+    public string? CollectionName { get; set; }
 
-        [DataMember(Name = "collectionCensoredName")]
-        public string CollectionCensoredName { get; set; }
+    [JsonPropertyName("collectionCensoredName")]
+    public string? CollectionCensoredName { get; set; }
 
-        [DataMember(Name = "artistViewUrl")]
-        public string ArtistViewUrl { get; set; }
+    [JsonPropertyName("artistViewUrl")]
+    public string? ArtistViewUrl { get; set; }
 
-        [DataMember(Name = "collectionViewUrl")]
-        public string CollectionViewUrl { get; set; }
+    [JsonPropertyName("collectionViewUrl")]
+    public string? CollectionViewUrl { get; set; }
 
-        [DataMember(Name = "trackViewUrl")]
-        public string TrackViewUrl { get; set; }
+    [JsonPropertyName("trackViewUrl")]
+    public string? TrackViewUrl { get; set; }
 
-        [DataMember(Name = "previewUrl")]
-        public string PreviewUrl { get; set; }
+    [JsonPropertyName("previewUrl")]
+    public string? PreviewUrl { get; set; }
 
-        [DataMember(Name = "artworkUrl30")]
-        public string ArtworkUrl30 { get; set; }
+    [JsonPropertyName("artworkUrl30")]
+    public string? ArtworkUrl30 { get; set; }
 
-        [DataMember(Name = "artworkUrl60")]
-        public string ArtworkUrl60 { get; set; }
+    [JsonPropertyName("artworkUrl60")]
+    public string? ArtworkUrl60 { get; set; }
 
-        [DataMember(Name = "artworkUrl100")]
-        public string ArtworkUrl100 { get; set; }
+    [JsonPropertyName("artworkUrl100")]
+    public string? ArtworkUrl100 { get; set; }
 
-        [DataMember(Name = "collectionPrice")]
-        public double CollectionPrice { get; set; }
+    [JsonPropertyName("collectionPrice")]
+    public double CollectionPrice { get; set; }
 
-        [DataMember(Name = "trackPrice")]
-        public double TrackPrice { get; set; }
+    [JsonPropertyName("trackPrice")]
+    public double TrackPrice { get; set; }
 
-        [DataMember(Name = "releaseDate")]
-        public string ReleaseDate { get; set; }
+    [JsonPropertyName("releaseDate")]
+    public string? ReleaseDate { get; set; }
 
-        [DataMember(Name = "collectionExplicitness")]
-        public string CollectionExplicitness { get; set; }
+    [JsonPropertyName("collectionExplicitness")]
+    public string? CollectionExplicitness { get; set; }
 
-        [DataMember(Name = "trackExplicitness")]
-        public string TrackExplicitness { get; set; }
+    [JsonPropertyName("trackExplicitness")]
+    public string? TrackExplicitness { get; set; }
 
-        [DataMember(Name = "discCount")]
-        public int DiscCount { get; set; }
+    [JsonPropertyName("discCount")]
+    public int DiscCount { get; set; }
 
-        [DataMember(Name = "discNumber")]
-        public int DiscNumber { get; set; }
+    [JsonPropertyName("discNumber")]
+    public int DiscNumber { get; set; }
 
-        [DataMember(Name = "trackCount")]
-        public int TrackCount { get; set; }
+    [JsonPropertyName("trackCount")]
+    public int TrackCount { get; set; }
 
-        [DataMember(Name = "trackNumber")]
-        public int TrackNumber { get; set; }
+    [JsonPropertyName("trackNumber")]
+    public int TrackNumber { get; set; }
 
-        [DataMember(Name = "trackTimeMillis")]
-        public long TrackTimeMilliseconds { get; set; }
+    [JsonPropertyName("trackTimeMillis")]
+    public long TrackTimeMilliseconds { get; set; }
 
-        [DataMember(Name = "country")]
-        public string Country { get; set; }
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-        [DataMember(Name = "currency")]
-        public string Currency { get; set; }
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
 
-        [DataMember(Name = "primaryGenreName")]
-        public string PrimaryGenreName { get; set; }
+    [JsonPropertyName("primaryGenreName")]
+    public string? PrimaryGenreName { get; set; }
 
-        [DataMember(Name = "isStreamable")]
-        public bool IsStreamable { get; set; }
-    }
+    [JsonPropertyName("isStreamable")]
+    public bool IsStreamable { get; set; }
 }

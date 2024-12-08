@@ -12,7 +12,7 @@ namespace iTunesSearch.Library.Tests
         public void GetArtistById_ValidArtist_ReturnsArtist()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long artistId = 311145;
 
             // Act
@@ -26,22 +26,22 @@ namespace iTunesSearch.Library.Tests
         public void GetArtistById_InvalidArtist_ReturnsDefaultInstanceOfSongArtist()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long artistId = 5858500001;
 
             // Act
             var item = search.GetSongArtistByArtistIdAsync(artistId).Result;
 
             // Assert
-            Assert.IsInstanceOfType(item, typeof(SongArtist));
-            Assert.IsTrue(item.ArtistName == default(string));
+            Assert.IsInstanceOfType<SongArtist>(item);
+            Assert.IsTrue(item.ArtistName == default);
         }
 
         [TestMethod]
         public void GetArtistByAMGArtistId_ValidArtist_ReturnsArtist()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long amgArtistId = 116437;
 
             // Act
@@ -55,22 +55,22 @@ namespace iTunesSearch.Library.Tests
         public void GetArtistByAMGArtistId_InvalidArtist_ReturnsDefaultInstanceOfSongArtist()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long amgArtistId = 5858500001;
 
             // Act
             var item = search.GetSongArtistByAMGArtistIdAsync(amgArtistId).Result;
 
             // Assert
-            Assert.IsInstanceOfType(item, typeof(SongArtist));
-            Assert.IsTrue(item.ArtistName == default(string));
+            Assert.IsInstanceOfType<SongArtist>(item);
+            Assert.IsTrue(item.ArtistName == default);
         }
 
         [TestMethod]
         public void GetAlbumsByArtistId_ValidArtist_ReturnsAlbums()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long artistId = 311145;
 
             // Act
@@ -84,7 +84,7 @@ namespace iTunesSearch.Library.Tests
         public void GetAlbumsByAMGArtistId_ValidArtist_ReturnsAlbums()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long amgArtistId = 116437;
 
             // Act
@@ -98,28 +98,28 @@ namespace iTunesSearch.Library.Tests
         public void GetSongArtists_ValidArtists_ReturnsArtists()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string artist = "R.E.M.";
 
             // Act
             var items = search.GetSongArtistsAsync(artist, 200).Result;
 
             // Assert
-            Assert.IsTrue(items.Artists.Any());
+            Assert.IsTrue(items.Artists.Count != 0);
         }
 
         [TestMethod]
         public void GetSongs_ValidSongs_ReturnsSongs()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string song = "Driver 8";
 
             // Act
             var items = search.GetSongsAsync(song, 200).Result;
 
             // Assert
-            Assert.IsTrue(items.Songs.Any());
+            Assert.IsTrue(items.Songs.Count != 0);
             Assert.IsTrue(items.Songs.Any(s => s.TrackName == "Driver 8" && s.ArtistName == "R.E.M."));
         }
 
@@ -127,14 +127,14 @@ namespace iTunesSearch.Library.Tests
         public void GetAlbums_ValidAlbums_ReturnsAlbums()
         {
             // Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string album = "Collapse into Now";
 
             // Act
             var items = search.GetAlbumsAsync(album, 200).Result;
 
             // Assert
-            Assert.IsTrue(items.Albums.Any());
+            Assert.IsTrue(items.Albums.Count != 0);
             Assert.IsTrue(items.Albums.Any(al => al.ArtistName == "R.E.M."));
         }
 
@@ -142,21 +142,21 @@ namespace iTunesSearch.Library.Tests
         public void GetTVEpisodesForShow_ValidShow_ReturnsEpisodes()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Modern Family";
 
             //  Act
             var items = search.GetTVEpisodesForShow(showName, 200).Result;
 
             //  Assert
-            Assert.IsTrue(items.Episodes.Any());
+            Assert.IsTrue(items.Episodes.Count != 0);
         }
 
         [TestMethod]
         public void GetTVEpisodesForShow_ValidShow_GroupedEpisodes()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Modern Family";
 
             //  Act
@@ -183,28 +183,28 @@ namespace iTunesSearch.Library.Tests
         public void GetTVSeasonsForShow_ValidShow_ReturnsShows()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Modern Family";
 
             //  Act
             var items = search.GetTVSeasonsForShow(showName).Result;
 
             //  Assert
-            Assert.IsTrue(items.Seasons.Any());
+            Assert.IsTrue(items.Seasons.Count != 0);
         }
 
         [TestMethod]
         public void GetTVSeasonById_ValidSeasonId_ReturnsShow()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long seasonId = 327827178;
 
             //  Act
             var items = search.GetTVSeasonById(seasonId).Result;
 
             //  Assert
-            Assert.IsTrue(items.Seasons.Any());
+            Assert.IsTrue(items.Seasons.Count != 0);
             Assert.AreEqual("Modern Family", items.Seasons.First().ShowName);
         }
 
@@ -212,7 +212,7 @@ namespace iTunesSearch.Library.Tests
         public void GetTVSeasonById_ValidSeasonId_ReturnsCorrectLargeArtwork()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long seasonId = 316075588;
             string expectedShowName = "Gilmore Girls";
             string expectedLargeArtworkUrl = "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/82/28/39/8228392e-f1f9-3b64-6c0f-14ba1f958a92/source/600x600bb.jpg";
@@ -221,7 +221,7 @@ namespace iTunesSearch.Library.Tests
             var items = search.GetTVSeasonById(seasonId).Result;
 
             //  Assert
-            Assert.IsTrue(items.Seasons.Any());
+            Assert.IsTrue(items.Seasons.Count != 0);
             Assert.AreEqual(expectedShowName, items.Seasons.First().ShowName);
             Assert.AreEqual(expectedLargeArtworkUrl, items.Seasons.First().ArtworkUrlLarge);
         }
@@ -230,7 +230,7 @@ namespace iTunesSearch.Library.Tests
         public void GetTVSeasonsForShow_ValidShowAndCountryCode_ReturnsShows()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Top of the Lake";
             string countryCode = "AU"; /* Australia */
 
@@ -238,14 +238,14 @@ namespace iTunesSearch.Library.Tests
             var items = search.GetTVSeasonsForShow(showName, 20, countryCode).Result;
 
             //  Assert
-            Assert.IsTrue(items.Seasons.Any());
+            Assert.IsTrue(items.Seasons.Count != 0);
         }
 
         [TestMethod]
         public void GetTVEpisodesForShow_ValidShowAndCountryCode_ReturnsEpisodes()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Top of the Lake";
             string countryCode = "AU"; /* Australia */
 
@@ -253,35 +253,35 @@ namespace iTunesSearch.Library.Tests
             var items = search.GetTVEpisodesForShow(showName, 200, countryCode).Result;
 
             //  Assert
-            Assert.IsTrue(items.Episodes.Any());
+            Assert.IsTrue(items.Episodes.Count != 0);
         }
 
         [TestMethod]
         public void GetPodcasts_ValidPodcast_ReturnsEpisodes()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             string showName = "Radiolab";
 
             //  Act
             var items = search.GetPodcasts(showName, 200).Result;
 
             //  Assert
-            Assert.IsTrue(items.Podcasts.Any());
+            Assert.IsTrue(items.Podcasts.Count != 0);
         }
 
         [TestMethod]
         public void GetPodcastById_ValidId_ReturnsPodcast()
         {
             //  Arrange
-            iTunesSearchManager search = new iTunesSearchManager();
+            iTunesSearchManager search = new();
             long podcastId = 1002937870;
 
             //  Act
             var items = search.GetPodcastById(podcastId).Result;
 
             //  Assert
-            Assert.IsTrue(items.Podcasts.Any());
+            Assert.IsTrue(items.Podcasts.Count != 0);
             Assert.AreEqual("Dear Hank and John", items.Podcasts.First().Name);
             Assert.AreEqual("http://dearhankandjohn.libsyn.com/rss", items.Podcasts.First().FeedUrl);
         }
